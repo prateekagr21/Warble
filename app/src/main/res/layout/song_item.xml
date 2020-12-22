@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:text="Song name"
         android:textSize="30sp"
-        android:textColor="@color/black"/>
+        android:textColor="@color/white"/>
 
 
 
