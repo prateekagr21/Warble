@@ -36,6 +36,20 @@ public class AllSongsAdapter extends RecyclerView.Adapter<AllSongsAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         AudioModel audioModel = audioModels.get(position);
         holder.songNameTextView.setText(audioModel.getSongName());
+        holder.artistTextView.setText(audioModel.getArtistName());
+        int duration = Integer.parseInt(audioModel.getDuration())/1000;
+        int min, sec;
+        min = duration/60;
+        sec = duration%60;
+        String durationText = "";
+        if(sec <=9){
+            durationText = min+":0"+sec+" • ";
+        }
+        else{
+            durationText = min+":"+sec+" • ";
+        }
+        holder.durationTextView.setText(durationText);
+
 
     }
 
@@ -46,9 +60,13 @@ public class AllSongsAdapter extends RecyclerView.Adapter<AllSongsAdapter.ViewHo
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView songNameTextView;
+        TextView artistTextView;
+        TextView durationTextView;
         public ViewHolder(View itemView){
             super(itemView);
             this.songNameTextView = itemView.findViewById(R.id.songname_textview);
+            this.artistTextView = itemView.findViewById(R.id.artistname_textview);
+            this.durationTextView = itemView.findViewById(R.id.duration_textview);
 
         }
     }

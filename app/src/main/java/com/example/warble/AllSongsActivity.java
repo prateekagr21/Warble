@@ -42,13 +42,17 @@ public class AllSongsActivity extends AppCompatActivity {
         final List<AudioModel> audioList = new ArrayList<>();
 
         Uri uri  = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
-        String[] projection = {MediaStore.Audio.AudioColumns.DATA, MediaStore.Audio.AudioColumns.TITLE, MediaStore.Audio.AudioColumns.ALBUM, MediaStore.Audio.ArtistColumns.ARTIST};
+        String[] projection = {MediaStore.Audio.AudioColumns.DATA, MediaStore.Audio.AudioColumns.TITLE, MediaStore.Audio.AudioColumns.ALBUM, MediaStore.Audio.ArtistColumns.ARTIST, MediaStore.Audio.AudioColumns.DURATION};
         Cursor cursor = context.getContentResolver().query(uri, projection, null, null , null);
         if (cursor!= null){
             while (cursor.moveToNext()) {
                 AudioModel audioModel = new AudioModel();
-                String name = cursor.getString(1);
-                audioModel.setSongName(name);
+                String songName = cursor.getString(1);
+                String artistName = cursor.getString(3);
+                String duration = cursor.getString(4);
+                audioModel.setSongName(songName);
+                audioModel.setArtistName(artistName);
+                audioModel.setDuration(duration);
                 audioList.add(audioModel);
             }
             cursor.close();

@@ -3,6 +3,24 @@ package com.example.warble.models;
 public class AudioModel {
 
     String songName;
+    String artistName;
+    String duration;
+
+    public String getArtistName() {
+        return artistName;
+    }
+
+    public String getDuration() {
+        return duration;
+    }
+
+    public void setArtistName(String artistName) {
+        this.artistName = artistName;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
 
     public String getSongName() {
         return songName;
