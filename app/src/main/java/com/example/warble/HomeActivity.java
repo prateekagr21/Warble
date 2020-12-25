@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.warble.adapters.AllSongsAdapter;
+import com.example.warble.adapters.RecentlyPlayedAdapter;
 import com.example.warble.models.AudioModel;
 
 import java.util.ArrayList;
@@ -32,6 +33,8 @@ public class HomeActivity extends AppCompatActivity {
 
     private Context context = this;
     private Button button;
+    private RecyclerView recentlyPlayedRecyclerView;
+    private List<AudioModel> recentlyPlayedList;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -46,6 +49,12 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+            //TODO Create recenltly played list and add in below code
+//            RecentlyPlayedAdapter adapter= new RecentlyPlayedAdapter(recentlyPlayedList);
+//            recentlyPlayedRecyclerView = findViewById(R.id.recentlyplayed_recyclerview);
+//            recentlyPlayedRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+//            recentlyPlayedRecyclerView.setAdapter(adapter);
     }
 
 
