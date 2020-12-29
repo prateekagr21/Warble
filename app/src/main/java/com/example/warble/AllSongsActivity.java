@@ -47,9 +47,11 @@ public class AllSongsActivity extends AppCompatActivity {
         if (cursor!= null){
             while (cursor.moveToNext()) {
                 AudioModel audioModel = new AudioModel();
+                String path = cursor.getString(0);
                 String songName = cursor.getString(1);
                 String artistName = cursor.getString(3);
                 String duration = cursor.getString(4);
+                audioModel.setPath(path);
                 audioModel.setSongName(songName);
                 audioModel.setArtistName(artistName);
                 audioModel.setDuration(duration);

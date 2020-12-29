@@ -10,5 +10,6 @@
     <color name="darkgrey_primarybg">#292929</color>
     <color name="baby_pink01">#F8A7F6</color>
     <color name="lightgrey">#4E4D4D</color>
+    <color name="photo_tap_darkblue">#070b0F</color>
 
 </resources>

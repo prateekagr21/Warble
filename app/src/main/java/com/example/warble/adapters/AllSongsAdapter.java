@@ -1,8 +1,10 @@
 package com.example.warble.adapters;
 
+import android.media.MediaMetadataRetriever;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
@@ -62,15 +64,18 @@ public class AllSongsAdapter extends RecyclerView.Adapter<AllSongsAdapter.ViewHo
         TextView songNameTextView;
         TextView artistTextView;
         TextView durationTextView;
+        ImageView songImageView;
         public ViewHolder(View itemView){
             super(itemView);
             this.songNameTextView = itemView.findViewById(R.id.songname_textview);
             this.artistTextView = itemView.findViewById(R.id.artistname_textview);
             this.durationTextView = itemView.findViewById(R.id.duration_textview);
-
+            this.songImageView = itemView.findViewById(R.id.song_image);
         }
     }
 }
+
+
 
 
 
