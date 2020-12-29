@@ -23,6 +23,7 @@
         <activity android:name=".AllSongsActivity"
             android:screenOrientation="portrait"/>
 
+        <service android:name=".services.MediaPlayerService"/>
 
     </application>
 
