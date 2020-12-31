@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
@@ -60,6 +61,8 @@ public class AllSongsAdapter extends RecyclerView.Adapter<AllSongsAdapter.ViewHo
         holder.songDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ((AllSongsActivity) context).onItemClicked(audioModel.getSongName());
+
                 Intent intent = new Intent(context, MediaPlayerService.class);
                 context.stopService(intent);
                 intent.putExtra("file_path", audioModel.getPath());

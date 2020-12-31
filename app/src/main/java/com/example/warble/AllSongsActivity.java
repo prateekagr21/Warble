@@ -5,11 +5,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.media.Image;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,7 +42,15 @@ public class AllSongsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_allsongs);
         recyclerView = findViewById(R.id.song_recyclerview);
         requestPermission();
-
+        findViewById(R.id.bottom_play_pause_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AllSongsActivity.this, MediaPlayerService.class);
+                stopService(intent);
+                ImageView bottomPlayPause = findViewById(R.id.bottom_play_pause_button);
+                bottomPlayPause.setImageResource(R.drawable.play);
+            }
+        });
     }
 
     private void getAllSongs(){
@@ -81,6 +92,13 @@ public class AllSongsActivity extends AppCompatActivity {
         else {
             getAllSongs();
         }
+    }
+
+    public void onItemClicked(String songName){
+        TextView bottomSongName = findViewById(R.id.bottom_song_name);
+        bottomSongName.setText(songName);
+        ImageView bottomPlayPause = findViewById(R.id.bottom_play_pause_button);
+        bottomPlayPause.setImageResource(R.drawable.pause);
     }
 
     @Override
